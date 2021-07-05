@@ -32,6 +32,9 @@ var generatePassword = function() {
     var isLowerCase = window.confirm("Would you like to include lowercase letters in your password?");
     var isUpperCase = window.confirm("Would you like to include upper case letters in your password?");
 
+    // creates variable to store the final random password
+    var randomPassword = "";
+
     // checks to see if the user wants special characters and concatenates the array specialChar to passwordChar
     if (isSpecialChar) {
       passwordChar = passwordChar.concat(specialChar);
@@ -51,6 +54,14 @@ var generatePassword = function() {
     if (isUpperCase) {
       passwordChar = passwordChar.concat(upperCase);
     }
+
+    // debugger;
+    // creates the for loop that creates the random password
+    for (var i = 0; i < passLength; i++) {
+      randomPassword = randomPassword + passwordChar[Math.floor(Math.random() * passwordChar.length)];
+    }
+    
+    return randomPassword;
   // reruns the function if a correct number is not picked
   } else {
     generatePassword();
