@@ -9,7 +9,7 @@ function writePassword() {
   passwordText.value = password;
 
 }
-
+//  generate password function that will write the final password to the website
 var generatePassword = function() {
   // prompts the user to choose the length of their password and converts it into an integer
   var passLength = window.prompt("How long would you like your password to be? Please choose between 8 and 128 characters?");
@@ -23,8 +23,7 @@ var generatePassword = function() {
   // defines the list of characters to choose from
   var passwordChar = [];
 
-
-  // check to see if the chosen length is in the correct parameters
+    // check to see if the chosen length is in the correct parameters
   if (passLength >= 8 && passLength <= 128){
     // logic for generating a random password
     // asks if the user what kind of characters they want to use in the password
@@ -32,9 +31,6 @@ var generatePassword = function() {
     var isNumber = window.confirm("Would you like to include numbers in your password?");
     var isLowerCase = window.confirm("Would you like to include lowercase letters in your password?");
     var isUpperCase = window.confirm("Would you like to include upper case letters in your password?");
-
-    // creates variable to store the final random password
-    var randomPassword = "";
 
     // checks to see if the user wants special characters and concatenates the array specialChar to passwordChar
     if (isSpecialChar) {
@@ -55,17 +51,11 @@ var generatePassword = function() {
     if (isUpperCase) {
       passwordChar = passwordChar.concat(upperCase);
     }
-
-    // debugger;
-    // creates the for loop that creates the random password
-    for (var i = 0; i < passLength; i++) {
-      randomPassword = randomPassword + passwordChar[Math.floor(Math.random() * passwordChar.length)];
-    }
-    
-    return randomPassword;
+  // reruns the function if a correct number is not picked
   } else {
     generatePassword();
   }
+
 }
 
 // Add event listener to generate button
